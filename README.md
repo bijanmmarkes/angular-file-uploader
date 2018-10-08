@@ -1,7 +1,7 @@
-Angular file uploader is an Angular 2/4/5/6 file uploader module with Real-Time Progress Bar, Angular Universal Compatibility and multiple themes which includes Drag and Drop and much more.
+Angular file uploader is an Angular 2/4/5 file uploader module with Real-Time Progress Bar, Angular Universal Compatibility and multiple themes which includes Drag and Drop and much more.
 
 ### Demo
-<https://kzrfaisal.github.io/#/afu>
+<http://angular-file-uploader.s3-website-us-east-1.amazonaws.com>
 ### Install
 ```
 npm i angular-file-uploader
@@ -13,15 +13,15 @@ npm i angular-file-uploader
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   ```
   in your index.html.
-- Import AngularFileUploaderModule inside your app.module.ts 
+- Import FileUploadModule inside your app.module.ts 
   ```javascript
-  import { AngularFileUploaderModule } from "angular-file-uploader";
+  import { FileUploadModule } from "angular-file-uploader";
   ```
   ```javascript
   @NgModule({
     imports: [
         ...,
-        AngularFileUploaderModule,
+        FileUploadModule,
         ...
     ]
   })
@@ -102,34 +102,18 @@ You have seen that by using 'resetUpload' property, you can reset the module eas
   - Now use this local reference variable in your xyz.component.ts file.
     ```javascript
         @ViewChild('fileUpload1')
-        private fileUpload1:  AngularFileUploaderComponent;
+        private fileUpload1:  FileUploadComponent;
     ```
-    - Remember to import ViewChild and AngularFileUploaderComponent properly in your component.
+    - Remember to import ViewChild and FileUploadComponent properly in your component.
       ```javascript
         import { ViewChild } from '@angular/core';
-        import { AngularFileUploaderComponent } from "angular-file-uploader";
+        import { FileUploadComponent } from "angular-file-uploader";
       ```
   - That's it.....all done, now just use
     ```javascript
         this.fileUpload1.resetFileUpload();
     ```
     to reset the module hassle-free anytime.
-
-### Styling: 
-###### Following classes are available for customisation :
-###### *Include them in your global css class (src/styles.css)*
-###### *Use '!important' if something doesn't works*
-- .afu-select-btn {}
-- .afu-reset-btn {}
-- .afu-upload-btn {}
-- .afu-dragndrop-box {}
-- .afu-dragndrop-text {}
-- .afu-constraints-info {}
-- .afu-valid-file {}
-- .afu-invalid-file {}
-- .afu-progress-bar {}
-- .afu-upload-status {}
-- .afu-attach-pin {}
 
 ##### Points to note:
 - Files are uploaded in FormData format.
@@ -138,9 +122,6 @@ You have seen that by using 'resetUpload' property, you can reset the module eas
 - More themes.
 - More customization options.
 
----
-#### For Versions =< 4.0.12 :
-- Replace AngularFileUploaderModule and AngularFileUploaderComponent with   FileUploadModule and FileUploadComponent respectively.
 ---
 #### For Versions < 2.x : [Click Here !](https://github.com/kzrfaisal/angular-file-uploader#for-versions--2x-) 
 ---
