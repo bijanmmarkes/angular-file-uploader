@@ -15,6 +15,7 @@ export var FileUploadComponent = (function () {
         this.uploadMsg = false;
         this.afterUpload = false;
         this.uploadClick = true;
+        this.files = [];
         //console.log("id: ",this.id);
         //console.log("idDate: ",this.idDate);
         //console.log(Math.random());
@@ -152,12 +153,11 @@ export var FileUploadComponent = (function () {
         this.notAllowedList = [];
         var isError = false;
         var xhr = new XMLHttpRequest();
-        var formData = new FormData();
         for (i = 0; i < this.selectedFiles.length; i++) {
             if (this.Caption[i] == undefined)
-                this.Caption[i] = "file";
+                this.Caption[i] = this.selectedFiles[i].name;
             //Add DATA TO BE SENT
-            formData.append(this.Caption[i], this.selectedFiles[i] /*, this.selectedFiles[i].name*/);
+            this.files.append(this.Caption[i], this.selectedFiles[i]);
         }
         if (i > 1) {
             this.singleFile = false;
@@ -216,7 +216,7 @@ export var FileUploadComponent = (function () {
         //let token = sessionStorage.getItem("token");
         //xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
         //xhr.setRequestHeader('Authorization', `Bearer ${token}`);
-        xhr.send(formData);
+        xhr.send(this.files);
     };
     FileUploadComponent.prototype.removeFile = function (i, sf_na) {
         //console.log("remove file clicked " + i)
