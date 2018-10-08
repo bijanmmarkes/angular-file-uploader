@@ -157,7 +157,7 @@ export var FileUploadComponent = (function () {
             if (this.Caption[i] == undefined)
                 this.Caption[i] = this.selectedFiles[i].name;
             //Add DATA TO BE SENT
-            this.files.append(this.Caption[i], this.selectedFiles[i]);
+            this.files.push(this.Caption[i], this.selectedFiles[i]);
         }
         if (i > 1) {
             this.singleFile = false;
@@ -208,11 +208,11 @@ export var FileUploadComponent = (function () {
             //console.log(evnt);
         };
         xhr.open("POST", this.uploadAPI, true);
-        for (var _i = 0, _a = Object.keys(this.headers); _i < _a.length; _i++) {
-            var key = _a[_i];
-            // Object.keys will give an Array of keys
-            xhr.setRequestHeader(key, this.headers[key]);
-        }
+        // for (var _i = 0, _a = Object.keys(this.headers); _i < _a.length; _i++) {
+        //     var key = _a[_i];
+        //     Object.keys will give an Array of keys
+        //     xhr.setRequestHeader(key, this.headers[key]);
+        // }
         //let token = sessionStorage.getItem("token");
         //xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
         //xhr.setRequestHeader('Authorization', `Bearer ${token}`);
