@@ -145,7 +145,7 @@ export var FileUploadComponent = (function () {
         event.target.value = null;
     };
     FileUploadComponent.prototype.uploadFiles = function () {
-        //console.log(this.selectedFiles);
+        var regex = /\[(.*?)\]/g;
         var _this = this;
         var i;
         this.progressBarShow = true;
@@ -156,7 +156,7 @@ export var FileUploadComponent = (function () {
         var xhr = new XMLHttpRequest();
         for (i = 0; i < this.selectedFiles.length; i++) {
             if (this.Caption[i] == undefined)
-                this.Caption[i] = this.selectedFiles[i].name;
+                this.Caption[i] = this.selectedFiles[i].name.replace(new RegExp(regex, "g"), "");
             //Add DATA TO BE SENT
             formData.append(this.Caption[i], this.selectedFiles[i]);
         }
